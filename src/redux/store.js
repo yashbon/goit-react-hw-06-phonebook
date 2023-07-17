@@ -1,17 +1,24 @@
-import { devToolsEnhancer } from '@redux-devtools/extension';
-import { createStore, combineReducers } from 'redux';
+import { configureStore } from '@reduxjs/toolkit';
+// import { devToolsEnhancer } from '@redux-devtools/extension';
+// import { createStore, combineReducers } from 'redux';
 import { contactsReducer } from './contactsSlice';
 import { filterReducer } from './filterSlice';
 
-const rootReducer = combineReducers({
-    contacts: contactsReducer,
-    filter: filterReducer,
-});
+// const rootReducer = combineReducers({
+//     contacts: contactsReducer,
+//     filter: filterReducer,
+// });
 
 // Створюємо розширення стора, щоб додати інструменти розробника
-const enhancer = devToolsEnhancer();
+// const enhancer = devToolsEnhancer();
 
-export const store = createStore(rootReducer, enhancer);
+// export const store = createStore(rootReducer, enhancer);
+export const store = configureStore({
+    reducer: {
+        contacts: contactsReducer,
+        filter: filterReducer,
+    },
+});
 
 //****************************************************************************** */
 // *************  WITHOT CombineReducer  *****************/
@@ -45,7 +52,6 @@ export const store = createStore(rootReducer, enhancer);
 // };
 //****************************************************************************** */
 
-
 // const contactsInitialState = [
 //     { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
 //     { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
@@ -74,7 +80,6 @@ export const store = createStore(rootReducer, enhancer);
 //             return state;
 //     }
 // };
-
 
 // export const applyFilter = filterValue => {
 //     return {
