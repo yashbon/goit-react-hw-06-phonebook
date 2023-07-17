@@ -1,5 +1,6 @@
 import ConactListItem from 'components/ContactLitsItem/ContactListItem';
 import { useSelector } from 'react-redux';
+import css from './ContactList.module.css';
 
 const ContactList = () => {
     // Отримуємо необхідну частину стану
@@ -17,6 +18,7 @@ const ContactList = () => {
         <ul style={{ width: 300, padding: 0 }}>
             {filteredContacts.map(contact => (
                 <li
+                    className={css.contactListItem}
                     key={contact.id}
                     style={{ display: 'flex', justifyContent: 'space-between' }}
                 >

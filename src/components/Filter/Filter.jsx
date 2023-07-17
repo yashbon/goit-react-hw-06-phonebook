@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { applyFilter } from 'redux/filterSlice';
+import css from './Filter.module.css';
 
 const Filter = () => {
     // const filter = useSelector(state => state.filter);
@@ -18,6 +19,7 @@ const Filter = () => {
         <>
             <label>Find contacts by name</label>
             <input
+                className={css.filterInput}
                 type="text"
                 name="name"
                 autoFocus={true}

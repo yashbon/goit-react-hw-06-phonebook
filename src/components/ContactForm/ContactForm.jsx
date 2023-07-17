@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 // import { customAlphabet } from 'nanoid';
 import { addContact } from 'redux/contactsSlice';
+import css from './ContactForm.module.css';
 
 // const nanoid = customAlphabet('1234567890', 2);
 
@@ -64,12 +65,12 @@ const ContactForm = () => {
     // };
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form className={css.form} onSubmit={handleSubmit}>
             <label>
                 Name
                 <br />
                 <input
-                    // className={css.input}
+                    className={css.input}
                     type="text"
                     name="name"
                     pattern="^[a-zA-Zа-яА-Я]+$"
@@ -81,13 +82,13 @@ const ContactForm = () => {
             </label>
             <br />
             <label
-            // className={css.label}
-            // htmlFor=""
+                className={css.label}
+                // htmlFor=""
             >
                 Number
                 <br />
                 <input
-                    // className={css.input}
+                    className={css.input}
                     type="tel"
                     name="number"
                     pattern="^[0-9]+$"
@@ -98,10 +99,7 @@ const ContactForm = () => {
                 />
             </label>
             <br />
-            <button
-                // className={css.form_button}
-                type="submit"
-            >
+            <button className={css.form_button} type="submit">
                 Add contact
             </button>
         </form>
