@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { customAlphabet } from 'nanoid';
+// import { customAlphabet } from 'nanoid';
 import { addContact } from 'redux/contactsSlice';
 
 // const nanoid = customAlphabet('1234567890', 2);
