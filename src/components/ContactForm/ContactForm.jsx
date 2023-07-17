@@ -52,7 +52,7 @@ const ContactForm = () => {
         // dispatch();
         // this.props.submitForm(newContact);
         // submitForm(newContact);
-        // resetFrom();
+        event.target.reset();
     };
 
     // const handleSubmit = contact => {
