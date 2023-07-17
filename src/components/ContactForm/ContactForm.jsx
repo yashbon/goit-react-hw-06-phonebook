@@ -66,7 +66,7 @@ const ContactForm = () => {
 
     return (
         <form className={css.form} onSubmit={handleSubmit}>
-            <label>
+            <label className={css.label}>
                 Name
                 <br />
                 <input
