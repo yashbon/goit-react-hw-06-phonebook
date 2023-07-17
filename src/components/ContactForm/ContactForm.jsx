@@ -32,26 +32,7 @@ const ContactForm = () => {
             };
             console.log(newContact);
             dispatch(addContact(newContact));
-
-            // const newContact = {
-            //     id: 'id-' + nanoid(),
-            //     name: contact.name,
-            //     number: contact.number,
-            // };
-            // // console.log('newContact: ', newContact);
-            // // this.setState(({ contacts }) => ({
-            // //     contacts: [newContact, ...contacts],
-            // // }));
-            // // contacts = [newContact, ...contacts];
-            // setContacts(contacts => [newContact, ...contacts]);
-            // // console.log('contacts: ', contacts);
         }
-
-        // console.log(name.value, number.value);
-        // console.log(this.state);
-        // dispatch();
-        // this.props.submitForm(newContact);
-        // submitForm(newContact);
         event.target.reset();
     };
 
