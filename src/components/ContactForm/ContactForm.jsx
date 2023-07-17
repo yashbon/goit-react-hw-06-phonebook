@@ -6,7 +6,7 @@ import { addContact } from 'redux/contactsSlice';
 
 const ContactForm = () => {
     const contacts = useSelector(state => state.contacts);
-    console.log(contacts);
+    // console.log(contacts);
     const dispatch = useDispatch();
 
     const handleSubmit = event => {
@@ -19,7 +19,7 @@ const ContactForm = () => {
         console.log(name.value);
 
         if (
-            contacts.find(
+            contacts.list.find(
                 contact =>
                     contact.name.toLowerCase() === name.value.toLowerCase()
             )

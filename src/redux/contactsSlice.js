@@ -2,12 +2,33 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { customAlphabet } from 'nanoid';
 
-const initialStateContcts = JSON.parse(localStorage.getItem('contacts')) ?? [
-    { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
-    { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
-    { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
-    { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
-];
+// ************ Persit
+import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
+
+const persistConfig = {
+    key: 'root',
+    storage,
+};
+
+// export const persistor = persistStore(store);
+//************* Persit E N D */
+
+// const initialStateContacts = JSON.parse(localStorage.getItem('contacts')) ?? [
+//     { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+//     { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+//     { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+//     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+// ];
+
+const initialStateContacts = {
+    list: [
+        { id: 'id-1', name: 'Rosie Simpson', number: '459-12-56' },
+        { id: 'id-2', name: 'Hermione Kline', number: '443-89-12' },
+        { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
+        { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
+    ],
+};
 
 // get LocalStorage
 
@@ -33,16 +54,16 @@ const contactsSlice = createSlice({
     //     { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
     //     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     // ],
-    initialState: initialStateContcts,
+    initialState: initialStateContacts,
     reducers: {
         deleteContact(state, action) {
-            state.splice(action.contactId, 1);
-            window.localStorage.setItem('contacts', JSON.stringify(state));
+            state.list.splice(action.contactId, 1);
+            // window.localStorage.setItem('contacts', JSON.stringify(state));
         },
         addContact: {
             reducer(state, action) {
-                state.unshift(action.payload);
-                window.localStorage.setItem('contacts', JSON.stringify(state));
+                state.list.unshift(action.payload);
+                // window.localStorage.setItem('contacts', JSON.stringify(state));
             },
             prepare(newContact) {
                 return {
@@ -57,8 +78,15 @@ const contactsSlice = createSlice({
     },
 });
 
+// console.log(contactsSlice.getInitialState());
+// console.log(contactsSlice);
+
 export const { deleteContact, addContact } = contactsSlice.actions;
-export const contactsReducer = contactsSlice.reducer;
+// export const persistedContactsReducer = contactsSlice.reducer;
+export const contactsReducer = persistReducer(
+    persistConfig,
+    contactsSlice.reducer
+);
 
 // export const contactsReducer = createReducer(initialStateContcts, builder =>
 //     builder
@@ -93,7 +121,7 @@ export const contactsReducer = contactsSlice.reducer;
 //     };
 // };
 
-console.log(deleteContact.toString());
+// console.log(deleteContact.toString());
 
 // export const deleteContact = contactId => {
 //     return {
@@ -102,7 +130,7 @@ console.log(deleteContact.toString());
 //     };
 // };
 
-console.log(addContact.type);
+// console.log(addContact.type);
 
 //********************** */
 // import { createSlice } from "@reduxjs/toolkit"

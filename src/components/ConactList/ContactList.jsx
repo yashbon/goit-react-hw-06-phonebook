@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 
 const ContactList = () => {
     // Отримуємо необхідну частину стану
-    const contacts = useSelector(state => state.contacts);
+    const contacts = useSelector(state => state.contacts.list);
     // console.log(contacts);
     const filter = useSelector(state => state.filter.filter);
     // console.log(filter);
