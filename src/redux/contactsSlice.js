@@ -57,7 +57,12 @@ const contactsSlice = createSlice({
     initialState: initialStateContacts,
     reducers: {
         deleteContact(state, action) {
-            state.list.splice(action.contactId, 1);
+            return {
+                list: state.list.filter(
+                    contact => contact.id !== action.payload
+                ),
+            };
+            // state.list.splice(action.contactId, 1);
             // window.localStorage.setItem('contacts', JSON.stringify(state));
         },
         addContact: {

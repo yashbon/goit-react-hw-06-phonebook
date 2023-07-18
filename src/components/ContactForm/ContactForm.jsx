@@ -17,7 +17,7 @@ const ContactForm = () => {
         // console.log('submit: number', event.target.number);
         // console.dir(event.target);
         const { name, number } = event.target.elements;
-        console.log(name.value);
+        // console.log(name.value);
 
         if (
             contacts.list.find(
@@ -31,7 +31,7 @@ const ContactForm = () => {
                 name: name.value,
                 number: number.value,
             };
-            console.log(newContact);
+            // console.log(newContact);
             dispatch(addContact(newContact));
         }
         event.target.reset();

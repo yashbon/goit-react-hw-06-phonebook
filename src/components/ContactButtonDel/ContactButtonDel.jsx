@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { deleteContact } from 'redux/contactsSlice';
+import css from './ContactButtonDel.module.css';
 
 const ContactButtonDel = ({ contactId }) => {
     const dispatch = useDispatch();
@@ -7,6 +8,7 @@ const ContactButtonDel = ({ contactId }) => {
     return (
         <>
             <button
+                className={css.deleteContact_Button}
                 style={{
                     height: 'fit-content',
                 }} // className={css.deleteContact_Button}

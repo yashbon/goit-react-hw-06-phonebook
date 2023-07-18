@@ -15,17 +15,24 @@ const ContactList = () => {
 
     // console.log(contacts);
     return (
-        <ul style={{ width: 300, padding: 0 }}>
-            {filteredContacts.map(contact => (
-                <li
-                    className={css.contactListItem}
-                    key={contact.id}
-                    style={{ display: 'flex', justifyContent: 'space-between' }}
-                >
-                    <ConactListItem contact={contact} />
-                </li>
-            ))}
-        </ul>
+        <>
+            {filteredContacts.length > 0 && (
+                <ul className={css.contactList}>
+                    {filteredContacts.map(contact => (
+                        <li
+                            className={css.contactListItem}
+                            key={contact.id}
+                            style={{
+                                display: 'flex',
+                                justifyContent: 'space-between',
+                            }}
+                        >
+                            <ConactListItem contact={contact} />
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </>
     );
 };
 
