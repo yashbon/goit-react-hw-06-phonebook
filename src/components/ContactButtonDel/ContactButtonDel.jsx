@@ -9,9 +9,6 @@ const ContactButtonDel = ({ contactId }) => {
         <>
             <button
                 className={css.deleteContact_Button}
-                style={{
-                    height: 'fit-content',
-                }} // className={css.deleteContact_Button}
                 type="button"
                 onClick={() => handleDeleteContact(contactId)}
             >
