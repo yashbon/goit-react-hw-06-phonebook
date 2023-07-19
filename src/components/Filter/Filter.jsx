@@ -3,13 +3,6 @@ import { applyFilter } from 'redux/filterSlice';
 import css from './Filter.module.css';
 
 const Filter = () => {
-    // const filter = useSelector(state => state.filter);
-    // console.log(filter);
-
-    // const filteredContacts = contacts.filter(contact =>
-    //     contact.name.toLowerCase().includes(filter.toLowerCase())
-    // );
-
     const dispatch = useDispatch();
 
     const handleChange = event => {

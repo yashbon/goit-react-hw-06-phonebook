@@ -6,11 +6,9 @@ const ConactListItem = ({ contact }) => {
             <p style={{ margin: 0 }}>
                 <span>{contact.name}</span> <span>{contact.number}</span>
             </p>
-            <ContactButtonDel
-                // className={css.deleteContact_Button}
-                contactId={contact.id}
-            />
+            <ContactButtonDel contactId={contact.id} />
         </>
     );
 };
+
 export default ConactListItem;
